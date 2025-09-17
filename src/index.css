@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
+/* Dark mode base */
+html.dark { color-scheme: dark; }
+body { @apply bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100; }
