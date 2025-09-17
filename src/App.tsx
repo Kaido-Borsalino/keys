@@ -62,7 +62,7 @@ function App() {
               <span className="font-bold tracking-wide">SpeedKeyShop</span>
               <Key className="w-8 h-8" />
               <span className="text-xl font-bold">SpeedKeyShop91</span>
-            </motion.div>
+            </div>
             <div className="hidden md:flex space-x-6">
               <a href="#accueil" className="hover:text-blue-200">Accueil</a>
               <a href="#services" className="hover:text-blue-200">Services</a>
@@ -70,7 +70,7 @@ function App() {
               <a href="#boutique" className="hover:text-blue-200">Boutique</a>
               <a href="#tarifs" className="hover:text-blue-200">Tarifs</a>
               <a href="#contact" className="hover:text-blue-200">Contact</a>
-            </motion.div>
+            </div>
             <div className="hidden md:block mr-3"><ThemeToggle /></div>
             <button
               onClick={() => setIsCartOpen(true)}
@@ -83,11 +83,10 @@ function App() {
                 </span>
               )}
             </button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </nav>
 
-      {
       {/* Hero Section (modern) */}
       <section id="hero" className="bg-gradient-to-b from-blue-900 to-blue-700 text-white">
         <div className="container mx-auto px-4 py-24 grid md:grid-cols-2 gap-10 items-center">
@@ -101,13 +100,13 @@ function App() {
             <div className="mt-8 flex gap-4">
               <a href="#tarifs" className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50">Voir nos packs</a>
               <a href="#how" className="border border-white/40 px-6 py-3 rounded-lg hover:bg-white/10">Comment ça marche ?</a>
-            </motion.div>
+            </div>
             <div className="mt-6 flex items-center gap-6 text-sm text-blue-100">
               <div>🔒 Stripe sécurisé</div>
               <div>⚡ Livraison instantanée</div>
               <div>💬 Support réactif</div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
           <div className="relative">
             <div className="absolute inset-0 -rotate-6 bg-white/10 rounded-2xl blur-md"></div>
             <div className="relative bg-white/10 backdrop-blur p-8 rounded-2xl">
@@ -118,9 +117,9 @@ function App() {
                 <li>✅ Réparation logicielle</li>
                 <li>✅ Support prioritaire</li>
               </ul>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
       {/* How it works */}
       <section id="how" className="py-20 bg-gray-50 dark:bg-neutral-900 dark:text-neutral-100">
@@ -151,17 +150,17 @@ function App() {
             <div className="bg-white p-6 rounded-xl shadow">
               <p className="text-gray-700">"Rapide et efficace, j'ai reçu ma clé en moins d'une minute !"</p>
               <div className="mt-4 font-semibold">— Julien, Paris</div>
-            </motion.div>
+            </div>
             <div className="bg-white p-6 rounded-xl shadow">
               <p className="text-gray-700">"Prix imbattables et facture immédiate, parfait pour mon entreprise."</p>
               <div className="mt-4 font-semibold">— Sarah, Lyon</div>
-            </motion.div>
+            </div>
             <div className="bg-white p-6 rounded-xl shadow">
               <p className="text-gray-700">"Support client réactif, je recommande à 100%."</p>
               <div className="mt-4 font-semibold">— Ahmed, Marseille</div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
     
     /* Hero Section */}
@@ -178,16 +177,16 @@ function App() {
               <a href="#contact" className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
                 Contactez-nous
               </a>
-            </motion.div>
+            </div>
             <div className="hidden md:block">
               <img 
                 src="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&fit=crop&q=80&w=2000" 
                 alt="Windows et Licences" 
                 className="rounded-lg shadow-xl"
               />
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Key Sales Section */}
@@ -210,7 +209,7 @@ function App() {
               title="Clés de Jeux"
               description="Codes d'activation pour vos jeux préférés"
             />
-          </motion.div>
+          </div>
           <div className="mt-12 bg-gray-50 p-8 rounded-lg">
             <h3 className="text-2xl font-semibold mb-6 text-center">Nos Produits</h3>
             <div className="grid md:grid-cols-3 gap-8">
@@ -222,7 +221,7 @@ function App() {
                   <li>Windows 11 Home</li>
                   <li>Windows 11 Pro</li>
                 </ul>
-              </motion.div>
+              </div>
               <div className="space-y-2">
                 <h4 className="font-semibold text-center mb-4">Logiciels Microsoft</h4>
                 <ul className="list-disc pl-5 text-gray-600">
@@ -231,7 +230,7 @@ function App() {
                   <li>Office 2021 Pro</li>
                   <li>Microsoft Project</li>
                 </ul>
-              </motion.div>
+              </div>
               <div className="space-y-2">
                 <h4 className="font-semibold text-center mb-4">Clés de Jeux</h4>
                 <ul className="list-disc pl-5 text-gray-600">
@@ -240,10 +239,10 @@ function App() {
                   <li>Jeux Battle.net</li>
                   <li>Cartes Steam</li>
                 </ul>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -266,8 +265,8 @@ function App() {
               title="Récupération de Données"
               description="Restauration de vos données importantes perdues"
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Pricing Section */}
@@ -308,8 +307,8 @@ function App() {
                 "Garantie 6 mois"
               ]}
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Shop Section */}
@@ -324,24 +323,24 @@ function App() {
                 <Shield className="w-8 h-8 text-green-600 mb-2" />
                 <h4 className="font-semibold text-sm">Licences Authentiques</h4>
                 <p className="text-xs text-gray-600">100% Originales</p>
-              </motion.div>
+              </div>
               <div className="flex flex-col items-center">
                 <Clock className="w-8 h-8 text-blue-600 mb-2" />
                 <h4 className="font-semibold text-sm">Livraison Rapide</h4>
                 <p className="text-xs text-gray-600">Sous 24h par email</p>
-              </motion.div>
+              </div>
               <div className="flex flex-col items-center">
                 <MessageCircle className="w-8 h-8 text-purple-600 mb-2" />
                 <h4 className="font-semibold text-sm">Support 7j/7</h4>
                 <p className="text-xs text-gray-600">Assistance gratuite</p>
-              </motion.div>
+              </div>
               <div className="flex flex-col items-center">
                 <Lock className="w-8 h-8 text-red-600 mb-2" />
                 <h4 className="font-semibold text-sm">Paiement Sécurisé</h4>
                 <p className="text-xs text-gray-600">SSL & Cryptage</p>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </div>
+            </div>
+          </div>
 
           {/* Category Filter */}
           <div className="flex justify-center mb-8">
@@ -382,8 +381,8 @@ function App() {
               >
                 Jeux
               </button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Products Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -394,8 +393,8 @@ function App() {
                 onAddToCart={handleAddToCart}
               />
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Trust & Testimonials Section */}
@@ -408,20 +407,20 @@ function App() {
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-900 mb-2">5000+</div>
               <div className="text-gray-600">Clients satisfaits</div>
-            </motion.div>
+            </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-900 mb-2">99.8%</div>
               <div className="text-gray-600">Taux de satisfaction</div>
-            </motion.div>
+            </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-900 mb-2">24h</div>
               <div className="text-gray-600">Livraison moyenne</div>
-            </motion.div>
+            </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-900 mb-2">5 ans</div>
               <div className="text-gray-600">D'expérience</div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Testimonials */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -440,7 +439,7 @@ function App() {
               rating={5}
               comment="Prix imbattables et service client au top. Ma clé Office fonctionne parfaitement. Merci SpeedKeyShop91 !"
             />
-          </motion.div>
+          </div>
 
           {/* Guarantees */}
           <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-8 rounded-lg">
@@ -450,20 +449,20 @@ function App() {
                 <Shield className="w-12 h-12 mx-auto mb-4" />
                 <h4 className="font-semibold mb-2">Garantie Authenticité</h4>
                 <p className="text-blue-100">Toutes nos licences sont 100% authentiques et légales</p>
-              </motion.div>
+              </div>
               <div className="text-center">
                 <Clock className="w-12 h-12 mx-auto mb-4" />
                 <h4 className="font-semibold mb-2">Garantie Livraison</h4>
                 <p className="text-blue-100">Livraison sous 24h ou remboursement intégral</p>
-              </motion.div>
+              </div>
               <div className="text-center">
                 <MessageCircle className="w-12 h-12 mx-auto mb-4" />
                 <h4 className="font-semibold mb-2">Support à Vie</h4>
                 <p className="text-blue-100">Assistance technique gratuite et illimitée</p>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Security & Certifications */}
@@ -479,24 +478,24 @@ function App() {
                   <div>
                     <h4 className="font-semibold">Cryptage SSL 256-bit</h4>
                     <p className="text-gray-600">Toutes vos données sont cryptées et sécurisées</p>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
                 <div className="flex items-start space-x-3">
                   <Shield className="w-6 h-6 text-green-600 mt-1" />
                   <div>
                     <h4 className="font-semibold">Conformité RGPD</h4>
                     <p className="text-gray-600">Respect total de la réglementation européenne</p>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
                 <div className="flex items-start space-x-3">
                   <Key className="w-6 h-6 text-green-600 mt-1" />
                   <div>
                     <h4 className="font-semibold">Partenaire Microsoft</h4>
                     <p className="text-gray-600">Revendeur agréé de licences Microsoft</p>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="text-center">
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <h4 className="text-xl font-semibold mb-4">Moyens de paiement sécurisés</h4>
@@ -504,19 +503,19 @@ function App() {
                   <div className="bg-gray-100 p-4 rounded">
                     <CreditCard className="w-8 h-8 mx-auto mb-2 text-blue-600" />
                     <p className="text-sm font-medium">Carte Bancaire</p>
-                  </motion.div>
+                  </div>
                   <div className="bg-gray-100 p-4 rounded">
                     <div className="w-8 h-8 mx-auto mb-2 bg-blue-600 rounded flex items-center justify-center">
                       <span className="text-white font-bold text-xs">PP</span>
-                    </motion.div>
+                    </div>
                     <p className="text-sm font-medium">PayPal</p>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
                 <p className="text-xs text-gray-500 mt-4">Paiements protégés par cryptage SSL</p>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Contact Section */}
@@ -538,7 +537,7 @@ function App() {
                     required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-3 py-2 border" 
                   />
-                </motion.div>
+                </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Email</label>
                   <input 
@@ -547,7 +546,7 @@ function App() {
                     required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-3 py-2 border" 
                   />
-                </motion.div>
+                </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Message</label>
                   <textarea 
@@ -556,7 +555,7 @@ function App() {
                     required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-3 py-2 border"
                   ></textarea>
-                </motion.div>
+                </div>
                 <input type="hidden" name="_next" value="https://speedkeyshop91.boats" />
                 <input type="hidden" name="_subject" value="Nouveau message depuis SpeedKeyShop91" />
                 <div className="hidden md:block mr-3"><ThemeToggle /></div>
@@ -564,7 +563,7 @@ function App() {
                   Envoyer
                 </button>
               </form>
-            </motion.div>
+            </div>
             <div className="space-y-6">
               <ContactInfo 
                 icon={<Phone />}
@@ -581,9 +580,9 @@ function App() {
                 title="Adresse"
                 info="1 Avenue Balzac, 91380 Chilly-Mazarin"
               />
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
       {/* Témoignages */}
       <section id="temoignages" className="py-20">
@@ -644,7 +643,7 @@ function App() {
             <div>
               <h3 className="text-xl font-bold mb-4">SpeedKeyShop91</h3>
               <p className="text-blue-200">Solutions professionnelles pour vos licences et besoins informatiques</p>
-            </motion.div>
+            </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Liens Rapides</h4>
               <ul className="space-y-2">
@@ -655,7 +654,7 @@ function App() {
                 <li><a href="#tarifs" className="text-blue-200 hover:text-white">Tarifs</a></li>
                 <li><a href="#contact" className="text-blue-200 hover:text-white">Contact</a></li>
               </ul>
-            </motion.div>
+            </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Horaires</h4>
               <ul className="space-y-2 text-blue-200">
@@ -663,20 +662,20 @@ function App() {
                 <li>Samedi: 10h-16h</li>
                 <li>Dimanche: Fermé</li>
               </ul>
-            </motion.div>
+            </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Suivez-nous</h4>
               <div className="flex space-x-4">
                 <a href="#" className="text-blue-200 hover:text-white"><Facebook /></a>
                 <a href="#" className="text-blue-200 hover:text-white"><Twitter /></a>
                 <a href="#" className="text-blue-200 hover:text-white"><Instagram /></a>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </div>
+            </div>
+          </div>
           <div className="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
             <p>&copy; 2025 SpeedKeyShop91. Tous droits réservés.</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </footer>
 
       {/* Cart */}
@@ -707,10 +706,10 @@ function App() {
             <span className="font-medium">
               {addedProduct.name} ajouté au panier !
             </span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -720,18 +719,18 @@ function TestimonialCard({ name, rating, comment }: { name: string; rating: numb
       <div className="flex items-center mb-4">
         <div className="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold">
           {name.charAt(0)}
-        </motion.div>
+        </div>
         <div className="ml-4">
           <h4 className="font-semibold">{name}</h4>
           <div className="flex">
             {[...Array(rating)].map((_, i) => (
               <span key={i} className="text-yellow-400">★</span>
             ))}
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </div>
+        </div>
+      </div>
       <p className="text-gray-600 italic">"{comment}"</p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -741,7 +740,7 @@ function ServiceCard({ icon, title, description }: { icon: React.ReactNode; titl
       <div className="text-blue-900 mb-4">{icon}</div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -764,7 +763,7 @@ function PriceCard({ title, price, features, featured = false, href }: { title: 
     >>
         Choisir
       </button>
-    </motion.div>
+    </div>
   );
 }
 
@@ -775,8 +774,8 @@ function ContactInfo({ icon, title, info }: { icon: React.ReactNode; title: stri
       <div>
         <h4 className="font-semibold">{title}</h4>
         <p className="text-gray-600">{info}</p>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
