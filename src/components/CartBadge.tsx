@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCount } from "../store/cart";
+import { getCount } from "../cart";
 
 export default function CartBadge() {
   const [count, setCount] = useState(0);
