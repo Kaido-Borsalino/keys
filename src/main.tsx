@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
 
+// Pages principales
 import PricingPlanPage from './pages/PricingPlanPage.tsx';
 import Signup from './pages/Signup.tsx';
 import FAQ from './pages/FAQ.tsx';
@@ -13,10 +14,14 @@ import Mentions from './pages/Mentions.tsx';
 import Privacy from './pages/Privacy.tsx';
 import Admin from './pages/Admin.tsx';
 
-// 👇 nouvelles pages packs
+// Packs dédiés
 import Basics from './pages/Basics.tsx';
 import Standard from './pages/Standard.tsx';
 import Premium from './pages/Premium.tsx';
+
+// 🛒 Panier + Checkout
+import CartPage from './pages/Cart.tsx';
+import OrderConfirmation from './pages/OrderConfirmation.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -30,10 +35,10 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/pricing/standard" element={<Standard />} />
         <Route path="/pricing/premium" element={<Premium />} />
 
-        {/* Pack : route dynamique (conservée pour compat / SEO) */}
+        {/* Pack : route dynamique (compatibilité/SEO) */}
         <Route path="/pricing/:planSlug" element={<PricingPlanPage />} />
 
-        {/* Compte / Admin */}
+        {/* Auth & Admin */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin" element={<Admin />} />
 
@@ -43,7 +48,11 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/mentions-legales" element={<Mentions />} />
         <Route path="/confidentialite" element={<Privacy />} />
 
-        {/* Fallback: redirige vers l'accueil si route inconnue */}
+        {/* Panier + Confirmation commande */}
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+
+        {/* Fallback: redirige vers l’accueil */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
