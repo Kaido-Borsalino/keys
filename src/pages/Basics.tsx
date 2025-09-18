@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
-import { addToCart } from "../store/cart";
+import { addToCart } from "../cart"; // ← on importe depuis src/cart.ts
 
+// --- Config du pack ---
 const BASE_PRICE = 49.99;
 const OPTIONS = [
   { id: "install", label: "Installation & configuration", price: 19.0 },
@@ -8,17 +9,42 @@ const OPTIONS = [
   { id: "backup", label: "Mise en place de sauvegardes", price: 12.0 },
 ];
 
+// Petit helper d'affichage
+const fmt = (n: number) => `${n.toFixed(2)}€`;
+
 export default function Basics() {
   const [selected, setSelected] = useState<string[]>([]);
+
   const total = useMemo(
     () =>
       BASE_PRICE +
-      selected.reduce((sum, id) => sum + (OPTIONS.find((o) => o.id === id)?.price || 0), 0),
+      selected.reduce(
+        (sum, id) => sum + (OPTIONS.find((o) => o.id === id)?.price || 0),
+        0
+      ),
     [selected]
   );
 
   const toggle = (id: string) =>
     setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
+
+  const handleAddToCart = () => {
+    const title =
+      "Pack Basics" +
+      (selected.length
+        ? " (" +
+          selected
+            .map((id) => OPTIONS.find((o) => o.id === id)?.label)
+            .filter(Boolean)
+            .join(", ") +
+          ")"
+        : "");
+
+    addToCart({ id: "pack-basics", title, price: total, qty: 1 });
+
+    // Feedback simple (tu pourras remplacer par un toast plus tard)
+    alert("✅ Pack Basics ajouté au panier !");
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950 dark:text-neutral-100">
@@ -28,19 +54,23 @@ export default function Basics() {
           Pack d’entrée pour démarrer rapidement.
         </p>
 
-        {/* Résumé prix */}
+        {/* Carte prix */}
         <div className="mt-6 bg-white dark:bg-neutral-800 rounded-xl p-6 ring-1 ring-black/5 dark:ring-white/10">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-sm text-gray-500 dark:text-neutral-300">Prix de base</div>
+              <div className="text-sm text-gray-500 dark:text-neutral-300">
+                Prix de base
+              </div>
               <div className="text-3xl font-extrabold text-gray-900 dark:text-neutral-100">
-                {BASE_PRICE.toFixed(2)}€
+                {fmt(BASE_PRICE)}
               </div>
             </div>
             <div className="text-right">
-              <div className="text-sm text-gray-500 dark:text-neutral-300">Total</div>
+              <div className="text-sm text-gray-500 dark:text-neutral-300">
+                Total
+              </div>
               <div className="text-3xl font-extrabold text-gray-900 dark:text-neutral-100">
-                {total.toFixed(2)}€
+                {fmt(total)}
               </div>
             </div>
           </div>
@@ -61,10 +91,12 @@ export default function Basics() {
                   checked={selected.includes(opt.id)}
                   onChange={() => toggle(opt.id)}
                 />
-                <span className="text-gray-900 dark:text-neutral-100">{opt.label}</span>
+                <span className="text-gray-900 dark:text-neutral-100">
+                  {opt.label}
+                </span>
               </div>
               <span className="text-gray-700 dark:text-neutral-200">
-                + {opt.price.toFixed(2)}€
+                + {fmt(opt.price)}
               </span>
             </label>
           ))}
@@ -73,22 +105,7 @@ export default function Basics() {
         {/* Actions */}
         <div className="mt-8 flex gap-4">
           <button
-            onClick={() => {
-              const title =
-                "Pack Basics" +
-                (selected.length
-                  ? " (" +
-                    selected
-                      .map((id) => OPTIONS.find((o) => o.id === id)?.label)
-                      .filter(Boolean)
-                      .join(", ") +
-                    ")"
-                  : "");
-              addToCart({ id: "pack-basics", title, price: total, qty: 1 });
-              window.dispatchEvent(
-                new CustomEvent("toast:ok", { detail: "Pack ajouté au panier" })
-              );
-            }}
+            onClick={handleAddToCart}
             className="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800"
           >
             Ajouter au panier
