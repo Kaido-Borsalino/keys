@@ -17,9 +17,7 @@ export default function ProductGrid() {
           const list = products.filter((p) => p.category === cat);
           return (
             <div key={cat} className="mb-12">
-              <div className="flex items-end justify-between mb-4">
-                <h3 className="text-xl font-bold">{cat}</h3>
-              </div>
+              <h3 className="text-xl font-bold mb-4">{cat}</h3>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {list.map((p) => (
@@ -27,18 +25,33 @@ export default function ProductGrid() {
                     key={p.id}
                     className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 overflow-hidden flex flex-col"
                   >
-                    <img src={p.image} alt={p.title} className="h-36 w-full object-contain bg-blue-50/40 dark:bg-neutral-800/50" />
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="h-36 w-full object-contain bg-blue-50/40 dark:bg-neutral-800/50"
+                    />
                     <div className="p-5 flex flex-col gap-2 flex-1">
                       <h4 className="font-semibold">{p.title}</h4>
                       <p className="text-sm text-gray-600 dark:text-neutral-300 flex-1">
                         {p.description}
                       </p>
                       <div className="mt-2 flex items-center justify-between">
-                        <div className="text-2xl font-extrabold">{currency(p.price)}</div>
+                        <div className="text-2xl font-extrabold">
+                          {currency(p.price)}
+                        </div>
                         <button
                           onClick={() => {
-                            addToCart({ id: p.id, title: p.title, price: p.price, qty: 1 });
-                            window.dispatchEvent(new CustomEvent("toast:ok", { detail: "Ajouté au panier" }));
+                            addToCart({
+                              id: p.id,
+                              title: p.title,
+                              price: p.price,
+                              qty: 1,
+                            });
+                            window.dispatchEvent(
+                              new CustomEvent("toast:ok", {
+                                detail: "Ajouté au panier",
+                              })
+                            );
                           }}
                           className="px-4 py-2 rounded-lg bg-blue-900 text-white hover:bg-blue-800"
                         >
