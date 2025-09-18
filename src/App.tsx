@@ -1,121 +1,197 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import ProductGrid from "./components/ProductGrid";
+import { motion } from "framer-motion";
+import { Key } from "lucide-react";
 import CartBadge from "./components/CartBadge";
-import Toast from "./components/Toast";
-import ThemeToggle from "./components/ThemeToggle";
-import Footer from "./components/Footer";
 
 export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
-      {/* Navbar */}
-      <nav className="sticky top-0 z-30 bg-blue-900 text-white">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 dark:text-neutral-100">
+      {/* NAVBAR */}
+      <nav className="sticky top-0 z-50 bg-blue-900 text-white shadow-md">
+        <div className="container mx-auto flex items-center justify-between px-4 py-4">
+          {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="SpeedKeyShop91" className="w-8 h-8 rounded" />
+            <Key className="w-8 h-8 text-yellow-400" />
             <span className="text-xl font-bold">SpeedKeyShop91</span>
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#hero" className="hover:text-blue-200">Accueil</a>
-            <a href="#tarifs" className="hover:text-blue-200">Nos tarifs</a>
-            <a href="#boutique" className="hover:text-blue-200">Boutique</a>
-            <Link to="/faq" className="hover:text-blue-200">FAQ</Link>
+            <a href="#accueil" className="hover:text-blue-200">
+              Accueil
+            </a>
+            <a href="#packs" className="hover:text-blue-200">
+              Nos Packs
+            </a>
+            <Link to="/faq" className="hover:text-blue-200">
+              FAQ
+            </Link>
+            <Link to="/cgv" className="hover:text-blue-200">
+              CGV
+            </Link>
+            <Link to="/mentions-legales" className="hover:text-blue-200">
+              Mentions légales
+            </Link>
+            <Link to="/confidentialite" className="hover:text-blue-200">
+              Confidentialité
+            </Link>
+
+            {/* Panier */}
+            <Link
+              to="/cart"
+              className="relative p-2 hover:bg-blue-800 rounded-lg transition-colors"
+              aria-label="Panier"
+            >
+              {/* Icône panier */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 10 19h9v-2h-9l1.1-2h6.45a2 2 0 0 0 1.79-1.11l3.58-7.16A1 1 0 0 0 21 4H7Z" />
+              </svg>
+
+              {/* Badge dynamique */}
+              <CartBadge />
+            </Link>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="hidden md:block">
-              <ThemeToggle />
-            </div>
-            <div className="relative p-2 hover:bg-blue-800 rounded-lg transition-colors">
-              <a href="/#panier" aria-label="Panier">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 10 19h9v-2h-9l1.1-2h6.45a2 2 0 0 0 1.79-1.11l3.58-7.16A1 1 0 0 0 21 4H7Z"/></svg>
-              </a>
-              <CartBadge />
-            </div>
-          </div>
+          {/* Bouton mobile */}
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-blue-800"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            ☰
+          </button>
         </div>
+
+        {/* Menu mobile */}
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden bg-blue-800 p-4 space-y-2"
+          >
+            <a href="#accueil" className="block hover:text-blue-200">
+              Accueil
+            </a>
+            <a href="#packs" className="block hover:text-blue-200">
+              Nos Packs
+            </a>
+            <Link to="/faq" className="block hover:text-blue-200">
+              FAQ
+            </Link>
+            <Link to="/cgv" className="block hover:text-blue-200">
+              CGV
+            </Link>
+            <Link to="/mentions-legales" className="block hover:text-blue-200">
+              Mentions légales
+            </Link>
+            <Link to="/confidentialite" className="block hover:text-blue-200">
+              Confidentialité
+            </Link>
+            <Link to="/cart" className="block hover:text-blue-200">
+              Mon panier
+            </Link>
+          </motion.div>
+        )}
       </nav>
 
-      {/* Hero */}
-      <section id="hero" className="bg-gradient-to-b from-blue-900 to-blue-700 text-white">
-        <div className="container mx-auto px-4 py-24 grid md:grid-cols-2 gap-10 items-center">
+      {/* HERO SECTION */}
+      <section
+        id="accueil"
+        className="bg-gradient-to-b from-blue-900 to-blue-700 text-white py-24"
+      >
+        <div className="container mx-auto grid md:grid-cols-2 gap-10 px-4 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              Clés Windows & Office officielles à prix malin
+              Obtenez vos clés Windows & Office
+              <span className="block text-yellow-400">au meilleur prix</span>
             </h1>
-            <p className="mt-4 text-blue-100 text-lg">
-              Paiement sécurisé, facture immédiate, livraison rapide par email.
+            <p className="mt-4 text-lg text-blue-100">
+              Livraison immédiate après paiement, garantie 100% activation.
             </p>
-            <div className="mt-8 flex gap-4">
-              <a href="#tarifs" className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50">
-                Voir nos packs
-              </a>
-              <a href="#boutique" className="border border-white/40 px-6 py-3 rounded-lg hover:bg-white/10">
-                Boutique Windows/Office
-              </a>
-            </div>
+            <a
+              href="#packs"
+              className="mt-6 inline-block px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded-lg shadow hover:bg-yellow-300 transition"
+            >
+              Voir les packs
+            </a>
           </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 -rotate-6 bg-white/10 rounded-2xl blur-md"></div>
-            <div className="relative bg-white/10 backdrop-blur p-4 rounded-2xl">
-              <img src="/windows-hero.png" alt="Mockup Windows / Office" className="rounded-xl shadow-2xl" />
-            </div>
+          <div className="flex justify-center">
+            <img
+              src="/windows-hero.svg"
+              alt="Windows Hero"
+              className="rounded-xl shadow-2xl"
+            />
           </div>
         </div>
       </section>
 
-      {/* Tarifs (exemple simple – tes cartes existantes) */}
-      <section id="tarifs" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-10">Nos packs</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 p-6">
-              <h3 className="text-xl font-bold">Basics</h3>
-              <div className="text-4xl font-extrabold mt-1">49.99€</div>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-neutral-300">
-                <li>✅ Installation / configuration</li>
-                <li>✅ Assistance initiale</li>
-              </ul>
-              <Link to="/pricing/basics" className="mt-6 inline-flex w-full justify-center py-3 px-4 rounded-lg font-semibold bg-blue-900 text-white hover:bg-blue-800">
-                Voir le pack
-              </Link>
-            </div>
+      {/* SECTION PACKS */}
+      <section id="packs" className="py-20 container mx-auto px-4">
+        <h2 className="text-3xl font-extrabold text-center mb-12">
+          Choisissez votre pack
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Basics */}
+          <div className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 p-6">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-neutral-100">
+              Basics
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-neutral-300">
+              Clé Windows simple & rapide
+            </p>
+            <div className="mt-4 text-2xl font-extrabold">29.99€</div>
+            <Link
+              to="/pricing/basics"
+              className="mt-6 block px-6 py-3 text-center rounded-lg bg-blue-900 text-white hover:bg-blue-800"
+            >
+              Détails
+            </Link>
+          </div>
 
-            <div className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 p-6">
-              <h3 className="text-xl font-bold">Standard</h3>
-              <div className="text-4xl font-extrabold mt-1">99.99€</div>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-neutral-300">
-                <li>✅ Diagnostic avancé</li>
-                <li>✅ Support prioritaire</li>
-              </ul>
-              <Link to="/pricing/standard" className="mt-6 inline-flex w-full justify-center py-3 px-4 rounded-lg font-semibold bg-blue-900 text-white hover:bg-blue-800">
-                Voir le pack
-              </Link>
-            </div>
+          {/* Standard */}
+          <div className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 p-6">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-neutral-100">
+              Standard
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-neutral-300">
+              Windows + Office
+            </p>
+            <div className="mt-4 text-2xl font-extrabold">59.99€</div>
+            <Link
+              to="/pricing/standard"
+              className="mt-6 block px-6 py-3 text-center rounded-lg bg-blue-900 text-white hover:bg-blue-800"
+            >
+              Détails
+            </Link>
+          </div>
 
-            <div className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 p-6">
-              <h3 className="text-xl font-bold">Premium</h3>
-              <div className="text-4xl font-extrabold mt-1">149.99€</div>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-neutral-300">
-                <li>✅ Accompagnement complet</li>
-                <li>✅ Priorité + suivi dédié</li>
-              </ul>
-              <Link to="/pricing/premium" className="mt-6 inline-flex w-full justify-center py-3 px-4 rounded-lg font-semibold bg-blue-900 text-white hover:bg-blue-800">
-                Voir le pack
-              </Link>
-            </div>
+          {/* Premium */}
+          <div className="rounded-xl ring-1 ring-black/5 dark:ring-white/10 bg-white dark:bg-neutral-800 p-6">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-neutral-100">
+              Premium
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-neutral-300">
+              Windows + Office + Support
+            </p>
+            <div className="mt-4 text-2xl font-extrabold">99.99€</div>
+            <Link
+              to="/pricing/premium"
+              className="mt-6 block px-6 py-3 text-center rounded-lg bg-blue-900 text-white hover:bg-blue-800"
+            >
+              Détails
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Boutique */}
-      <ProductGrid />
-
-      <Footer />
-      <Toast />
     </div>
   );
 }
