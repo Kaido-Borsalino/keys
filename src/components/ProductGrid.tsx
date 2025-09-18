@@ -1,5 +1,5 @@
 import { products } from "../data/products";
-import { addToCart } from "../store/cart";
+import { addToCart } from "../cart";
 
 export default function ProductGrid() {
   return (
